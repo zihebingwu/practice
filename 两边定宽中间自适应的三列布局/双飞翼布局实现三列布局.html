@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	   *{
+	   	margin: 0;
+	   	padding: 0;
+	   }
+	  /*什么时候需要清楚浮动?答：当子元素设置浮动后，无法把父元素撑开时*/
+	   /*#header,#footer{
+	   	width: 100%;background: #C0C0C0;height: 30px;clear: both;
+	   }*/
+       .column{
+       	float: left;
+       }
+       /*宽度设成百分比是相对于父元素的宽度，container宽度设置为100%,即为浏览器的宽度，所以center_div即为container的宽度，也就是浏览器的宽度*/
+       #container{
+       	width: 100%;
+       /*	height: 200px;*/
+       /*	background-color: lightblue;*/
+       }
+       #center_div{
+       	background: red;
+       	width: 100%;
+       	height: 200px;
+       	}
+
+       #left_div{
+        background: blue;
+       	width: 300px;
+       	margin-left: -100%;  
+       	/*设置负%100，可以使left_div从左边覆盖中间的div部分*/
+       	height: 200px;
+       }
+       #right_div{
+       	background: yellow;
+       	width: 200px;
+        margin-left: -200px;
+        height: 200px;
+       }
+       #center_div #mainWrap{
+       	margin-left: 300px;
+       	margin-right: 200px;
+       }
+/*以上是双飞翼布局设计的三列布局*/
+	</style>
+</head>
+<body>
+    <!-- <div id="header">header</div> -->
+	<div id="container">
+		<div id="center_div" class="column">
+           <div id="mainWrap">主要内容</div>
+		</div>
+		<div id="left_div" class="column">左边宽度固定，中间自适应</div>
+		<div id="right_div" class="column">右边宽度固定，中间宽度自适应</div>
+	</div>
+	<!-- <div id="footer">footer</div> -->
+</body>
+</html>

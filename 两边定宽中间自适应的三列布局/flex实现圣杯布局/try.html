@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+
+        /*.Grid{
+        	width: 1170px;
+        	display: flex;
+        }
+        .Grid-cell{
+        	flex: 1;
+        } 
+        .item1{
+        	flex:  0 0 25%;
+        	background-color: yellow;
+        }
+        .item2{
+        	background-color: pink;
+        }
+        .item3{
+        	flex: 0 0 33.3333%;
+        	background-color: red;
+        }*/
+
+        /* flex实现圣杯布局--start--*/
+        .HolyGrail{
+        	width: 1110px;
+        	height: 800px;
+        	display: flex;
+        	min-height: 100px;
+        	flex-direction: column;
+        	text-align: center;
+        	/*头部，躯干，尾部纵向排列*/
+        }
+        header,footer{
+        	flex:0 0 20%;
+        	background-color: #ddd;
+        }
+        .HolyGrail-body{
+        	display: flex;
+        	flex: 1;
+        }
+        .HolyGrail-nav,.HolyGrail-ads{
+        	/*两个边栏的宽度设置为12em*/
+        	flex: 0 0 12em;
+        	background-color: pink;
+        }
+        .HolyGrail-content{
+        	flex: 1;
+        	background-color: red;
+        }
+        .HolyGrail-nav{
+        	/*导航放到最左边*/
+        	order: -1;	
+        }
+       /* flex实现圣杯布局--end--*/
+       /* 输入框的布局--start--*/
+        .flex-box{
+        	width: 488px;
+        	height: 42px;
+        	line-height: 42px;
+        	text-align: center;
+        	display: flex;
+        	/*border: 2px solid #2bb8aa;*/
+        }
+        .input-item{
+        	flex: 0 0 66px;
+        }
+        .input-filed{
+        	flex: 1;
+        	border: 2px solid #2bb8aa;
+        }
+        .input-left{
+        	border: 2px solid #2bb8aa;
+        	border-right: none;
+        }
+        .input-right{
+        	background-color: #2bb8aa;
+        }
+	</style>
+</head>
+<body>
+    <!-- 百分比布局 -->
+	<!-- <div class="Grid">
+		<div class="Grid-cell item1">11</div>
+		<div class="Grid-cell item2">22</div>
+		<div class="Grid-cell item3">33</div>
+	</div> -->
+	<!-- 百分比布局 -->
+
+	<!-- flex实现圣杯布局 -->
+	<div class="HolyGrail">
+		<header>#header</header>
+		<div class="HolyGrail-body">
+			<main class="HolyGrail-content">#center</main>
+			<nav class="HolyGrail-nav">#left</nav>
+			<aside class="HolyGrail-ads">#right</aside>
+		</div>
+		<footer>#footer</footer>
+	</div>
+	<!-- flex实现圣杯布局 -->
+    <!输入框的布局--start-->
+    <div class="flex-box">
+    	<div class="input-item input-left">团购</div>
+    	<input type="text" class="input-filed" value="请输入商品名称或地址等">
+    	<div class="input-item input-right">搜索</div>
+    </div>
+    <!输入框的布局--end-->
+
+
+</body>
+</html>

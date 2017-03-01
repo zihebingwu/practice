@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	/*实现左边宽度200px,右边宽度150px,中间自适应
+      html代码中  middle部分首先要放在container的最前部分。然后是left,right
+
+1.将三者都 float:left , 再加上一个position:relative (因为相对定位后面会用到）
+
+2.middle部分 width:100%占满
+
+3.此时middle占满了，所以要把left拉到最左边，使用margin-left:-100%
+
+4.这时left拉回来了，但会覆盖middle内容的左端，要把middle内容拉出来，所以在外围container加上 padding:0 220px 0 200px
+
+5.middle内容拉回来了，但left也跟着过来了，所以要还原，就对left使用相对定位 left:-200px  同理，right也要相对定位还原 right:-220px
+
+6.到这里大概就自适应好了。如果想container高度保持一致可以给left middle right都加上min-height:130px
+
+      */
+
+       #container{
+       	padding-left: 200px;
+       	padding-right: 150px;
+       } 
+       /*为左右栏流出宽度*/
+      .column{
+            position: relative;
+            float: left;
+      }
+      #center{
+            width: 100%;
+            background-color: #2aa8bb;
+      }
+      #left{
+            left: -200px;
+            width: 200px;
+            margin-left: -100%;
+            background-color: #6cc8aa;
+      }
+      #right{
+            margin-left: -150px;
+            width: 150px;
+           /* right: -150px;*/
+            background-color: #8aa2dd;
+      }
+       /*float:left和position: relative配合使用，晓得float:left，他使得指定元素脱离普通的文档流而产生的特别的布局特性。position：relative（相对定位）对象不可层叠、不脱离文档流，参考自身静态位置通过 top,bottom,left,right 定位，并且可以通过z-index进行层次分级。我们知道生成相对定位的元素，其实就是相对于其正常位置进行定位。*/
+	</style>
+</head>
+<body>
+	<div id="header"></div>
+	<div id="container">
+		<div id="center" class="column" >中间</div>
+		<div id="left" class="column" >左边</div>
+		<div id="right" class="column" >右边</div>
+	</div>
+	<div id="footer"></div>
+</body>
+</html>
